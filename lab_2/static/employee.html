@@ -5,38 +5,37 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="employee.css">
 </head>
 
 <body>
     <h1>Add user</h1>
-    <form action="employee" method="post">
-        <label>
-            Name:
+    <form class="add-employee-form" action="employee" method="post">
+        <label class="label">
+            <span>Name</span>
             <input type="text" required name="name">
         </label>
-        <br>
-        <br>
-        <label>
-            Email:
+        <label class="label">
+            <span>Email</span>
             <input type="email" required name="email">
         </label>
-        <br><br>
-        <label>
-            Years of expierience:
+        
+        <label class="label">
+            <span>Years of expierience</span>
             <input type="number" min="0" value="0" required name="yearsOfExpierence">
         </label>
 
-        <br><br>
+        
 
-        <label>
-           Salary:
+        <label class="label">
+           <span>Salary</span>
            <input type="number" value="0" name="salary">
         </label>
 
-        <br><br>
         
-        <label>
-            Level:
+        
+        <label class="label">
+            <span>Level</span>
             <select name="level">
                 <option value="jr">Junior</option>
                 <option value="sr">Senior</option>
@@ -45,9 +44,9 @@
             </select>
         </label>
 
-        <br><br>
+        
 
-        <button>Submit</button>
+        <button class="submit">Submit</button>
 
 
 

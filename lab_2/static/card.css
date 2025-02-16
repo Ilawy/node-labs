@@ -1,7 +1,7 @@
 .card {
   display: flex;
   flex-direction: column;
-  border: 1px solid;
+  border: 1px solid #aaa;
   border-radius: 1rem;
   max-width: 480px;
   box-shadow: 2.8px 2.8px 2.2px rgba(0, 0, 0, 0.02),
@@ -17,4 +17,13 @@
 .card img{
     border-radius: 1rem;
     margin-bottom: 1rem;
+}
+
+
+.container{
+  max-width: 70ch;
+  padding: 3em 1em;
+  margin: auto;
+  line-height: 1.75;
+  font-size: 1.25em;
 }

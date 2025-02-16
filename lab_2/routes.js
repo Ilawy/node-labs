@@ -51,14 +51,17 @@ export const routes = {
       req.on("data", async (e) => {
         try {
           await addOP(Object.fromEntries(new URLSearchParams(e.toString())));
-          res.writeHead(301, {
-            Location: `/`
-          }).end();
+
+          //a trick to redirect using html
+          res.writeHead(200, { "content-type": "text/html"})
+          res.end(`<head>
+            <meta http-equiv="refresh" content="0; url = /"/>
+            </head>`)
+         
         } catch (error) {
           res.end(error.message);
         }
       });
-      console.log("lol");
     } else {
       notFound(req, res);
     }
