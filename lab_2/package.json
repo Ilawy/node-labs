@@ -1,0 +1,22 @@
+{
+  "type": "module",
+  "name": "lab_2",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "node .",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@types/node": "^22.13.4"
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.20.0",
+    "eslint": "^9.20.1",
+    "globals": "^15.15.0"
+  }
+}

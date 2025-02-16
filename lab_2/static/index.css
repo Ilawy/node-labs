@@ -1,0 +1,21 @@
+body{
+    background: #F4F8D3;
+}
+
+
+.cards{
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1rem;
+    flex-wrap: wrap;
+    list-style: none;
+    max-width: 120ch;
+    margin: 0 auto;
+}
+
+.card{
+    padding: 1rem;
+    border: 1px solid #aaa;
+    border-radius: 0.5rem;
+    background: white;
+}

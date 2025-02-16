@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>Add user</h1>
+    <form action="employee" method="post">
+        <label>
+            Name:
+            <input type="text" required name="name">
+        </label>
+        <br>
+        <br>
+        <label>
+            Email:
+            <input type="email" required name="email">
+        </label>
+        <br><br>
+        <label>
+            Years of expierience:
+            <input type="number" min="0" value="0" required name="yearsOfExpierence">
+        </label>
+
+        <br><br>
+
+        <label>
+           Salary:
+           <input type="number" value="0" name="salary">
+        </label>
+
+        <br><br>
+        
+        <label>
+            Level:
+            <select name="level">
+                <option value="jr">Junior</option>
+                <option value="sr">Senior</option>
+                <option value="mid-level">Mid-level</option>
+                <option value="lead">Lead</option>
+            </select>
+        </label>
+
+        <br><br>
+
+        <button>Submit</button>
+
+
+
+    </form>
+</body>
+
+</html>
