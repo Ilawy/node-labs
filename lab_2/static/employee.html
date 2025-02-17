@@ -1,56 +1,58 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-    <link rel="stylesheet" href="employee.css">
-</head>
+    <link rel="stylesheet" href="employee.css" />
+  </head>
 
-<body>
+  <body>
     <h1>Add user</h1>
     <form class="add-employee-form" action="employee" method="post">
-        <label class="label">
-            <span>Name</span>
-            <input type="text" required name="name">
-        </label>
-        <label class="label">
-            <span>Email</span>
-            <input type="email" required name="email">
-        </label>
+      <span id="errorMessage" class="error-message"> </span>
+      <label class="label">
+        <span>Name</span>
+        <input type="text" required name="name" />
+      </label>
+      <label class="label">
+        <span>Email</span>
+        <input type="email" required name="email" />
+      </label>
 
-        <label class="label">
-            <span>Years of expierience</span>
-            <input type="number" min="0" value="0" required name="yearsOfExperience">
-        </label>
+      <label class="label">
+        <span>Years of expierience</span>
+        <input
+          type="number"
+          min="0"
+          value="0"
+          required
+          name="yearsOfExperience"
+        />
+      </label>
 
+      <label class="label">
+        <span>Salary</span>
+        <input type="number" value="0" name="salary" />
+      </label>
 
+      <label class="label">
+        <span>Level</span>
+        <select name="level">
+          <option value="jr">Junior</option>
+          <option value="sr">Senior</option>
+          <option value="mid-level">Mid-level</option>
+          <option value="lead">Lead</option>
+        </select>
+      </label>
 
-        <label class="label">
-            <span>Salary</span>
-            <input type="number" value="0" name="salary">
-        </label>
-
-
-
-        <label class="label">
-            <span>Level</span>
-            <select name="level">
-                <option value="jr">Junior</option>
-                <option value="sr">Senior</option>
-                <option value="mid-level">Mid-level</option>
-                <option value="lead">Lead</option>
-            </select>
-        </label>
-
-
-
-        <button class="submit">Submit</button>
-
-
-
+      <button class="submit">Submit</button>
     </form>
-</body>
-
+    <script>
+        const errorMessage = new URL(location.href).searchParams.get("error")
+        if(errorMessage){
+            document.getElementById("errorMessage").innerHTML = errorMessage
+        }
+    </script>
+  </body>
 </html>

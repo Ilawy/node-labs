@@ -63,7 +63,10 @@ export const routes = {
             <meta http-equiv="refresh" content="0; url = /"/>
             </head>`)
         } catch (error) {
-          res.end(error.message)
+          res.writeHead(200, { "content-type": "text/html" })
+          res.end(`<head>
+            <meta http-equiv="refresh" content="0; url = /employee?error=${decodeURIComponent(error.message)}"/>
+            </head>`)
         }
       })
 
