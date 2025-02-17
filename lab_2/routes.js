@@ -53,7 +53,7 @@ export const routes = {
         rawData += e.toString()
       });
 
-      req.on("end", async e => {
+      req.on("end", async () => {
         try {
           await addOP(Object.fromEntries(new URLSearchParams(rawData)));
 
