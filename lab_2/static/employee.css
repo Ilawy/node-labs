@@ -12,7 +12,7 @@ body {
   grid-template-columns: repeat(2, 1fr);
   gap: 1rem;
   padding: 1rem;
-  max-width: 90ch;
+  max-width: 70ch;
   margin: 0 auto;
   box-shadow:
     6.7px 6.7px 5.3px rgba(0, 0, 0, 0.028),
