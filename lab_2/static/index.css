@@ -1,10 +1,27 @@
-body{
-    background: #3674B5;
+body {
+    background: #B2A5FF;
     color: white;
+    font-family: sans-serif;
+}
+
+.nav {
+    max-width: 120ch;
+    padding: 3em 1em;
+    margin: auto;
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+
+    a {
+        color: white;
+        text-decoration: none;
+        font-size: 1.1rem;
+        font-weight: 500;
+    }
 }
 
 
-.cards{
+.cards {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     gap: 1rem;
@@ -18,7 +35,7 @@ body{
     grid-template-rows: masonry;
 }
 
-.card{
+.card {
     padding: 1rem;
     border: 1px solid #aaa;
     border-radius: 0.5rem;
@@ -31,8 +48,12 @@ body{
     align-items: center;
     gap: 1rem;
     max-width: 300px;
-    
-    .profile-picture{
+    box-shadow:
+        6.7px 6.7px 5.3px rgba(0, 0, 0, 0.028),
+        22.3px 22.3px 17.9px rgba(0, 0, 0, 0.042),
+        100px 100px 80px rgba(0, 0, 0, 0.07);
+
+    .profile-picture {
         width: 48px;
         grid-column: 1 / 4;
         justify-self: center;
@@ -40,14 +61,15 @@ body{
         border: 2px solid;
     }
 
-    .row{
+    .row {
         width: 100%;
         display: flex;
         align-items: center;
         justify-content: space-between;
         flex-wrap: wrap;
         gap: 0.5rem;
-        span:first-child{
+
+        span:first-child {
             color: #2C3930;
             font-weight: bold;
         }
@@ -55,10 +77,11 @@ body{
 }
 
 @media screen and (max-width: 680px) {
-    body{
+    body {
         background: red;
     }
-    .cards{
+
+    .cards {
         justify-items: center;
     }
 }

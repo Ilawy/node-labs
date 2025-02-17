@@ -1,12 +1,26 @@
+body {
+  background: #B2A5FF;
+  color: white;
+  font-family: sans-serif;
+}
+
 .add-employee-form {
+  background: white;
+  color: black;
+  border-radius: 1rem;
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   gap: 1rem;
   padding: 1rem;
   max-width: 90ch;
   margin: 0 auto;
+  box-shadow:
+    6.7px 6.7px 5.3px rgba(0, 0, 0, 0.028),
+    22.3px 22.3px 17.9px rgba(0, 0, 0, 0.042),
+    100px 100px 80px rgba(0, 0, 0, 0.07);
 
-  .submit{
+
+  .submit {
     padding: 0.25rem;
     grid-column: 1 / 2;
   }
@@ -25,6 +39,7 @@
   }
 }
 
-input, select{
-    padding: 0.25rem 0.5rem;
+input,
+select {
+  padding: 0.25rem 0.5rem;
 }

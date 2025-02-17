@@ -35,7 +35,7 @@ export const routes = {
   "/astronomy": async (req, res) => {
     createReadStream(getStaticFilePath("astronomy.html")).pipe(res);
   },
-  
+
   "/astronomy/download": async (req, res) => {
     res.setHeader('Content-disposition', 'attachment; filename=file.png');
     createReadStream(getStaticFilePath("image_1.png")).pipe(res);
@@ -48,20 +48,26 @@ export const routes = {
     if (req.method === "GET") {
       createReadStream(getStaticFilePath("employee.html")).pipe(res);
     } else if (req.method === "POST") {
+      let rawData = ""
       req.on("data", async (e) => {
+        rawData += e.toString()
+      });
+
+      req.on("end", async e => {
         try {
-          await addOP(Object.fromEntries(new URLSearchParams(e.toString())));
+          await addOP(Object.fromEntries(new URLSearchParams(rawData)));
 
           //a trick to redirect using html
-          res.writeHead(200, { "content-type": "text/html"})
+          res.writeHead(200, { "content-type": "text/html" })
           res.end(`<head>
             <meta http-equiv="refresh" content="0; url = /"/>
             </head>`)
-         
         } catch (error) {
-          res.end(error.message);
+          res.end(error.message)
         }
-      });
+      })
+
+
     } else {
       notFound(req, res);
     }
@@ -74,17 +80,15 @@ export const routes = {
     }
     const storage = await getData()
 
-    console.log(storage);
-    
 
     res.writeHead(200, {
       "content-type": "application/json",
     });
 
     // hide id from data
-    res.end(JSON.stringify(storage.data.map(employee=>{
-        delete employee.id
-        return employee
+    res.end(JSON.stringify(storage.data.map(employee => {
+      delete employee.id
+      return employee
     })))
   },
 

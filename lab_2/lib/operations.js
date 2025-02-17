@@ -10,9 +10,11 @@ import { isValidEmail, isValidLevel, isValidNumber, ALLOWED_LEVELS } from "./val
  * @param {typeof Employee} parsedArgs
  */
 export async function addOP(parsedArgs) {
+  console.log(parsedArgs);
+
   const storage = await getData();
 
-  
+
   const id = storage.lastid++;
 
   //get only required, but not provided fields
@@ -50,7 +52,7 @@ export async function addOP(parsedArgs) {
 
   //salary validation
   const salaryAsNumber = isValidNumber(salary);
-  if (salaryAsNumber === null)
+  if (salaryAsNumber === null || salaryAsNumber === 0)
     throw new Error("salary must be valid positive number");
 
   /** @type {Employee} */
