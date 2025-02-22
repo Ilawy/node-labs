@@ -5,7 +5,6 @@ import { routes } from "./routes.js"
 
 const server = createServer(async (req, res)=>{    
     const {url} = req
-
     const {pathname} = new URL(url, "http://localhost")
     if(pathname in routes){
         await routes[pathname](req, res)

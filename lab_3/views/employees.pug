@@ -1,0 +1,9 @@
+include includes/head.pug
+.grid
+  each employee in employees
+    .card
+      span= employee.name
+      br
+      span= employee.email
+      
+
