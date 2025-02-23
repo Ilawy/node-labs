@@ -15,10 +15,14 @@ export const employeesRouter = Router()
 
 employeesRouter.get('/', async (req, res) => {
   const { query } = req
-  const sorage = await getData()
+  const filterKeys = Object.keys(query)
+  const storage = await getData()
+  const filteredData = storage.data.filter((employee) => {
+    return filterKeys.every(key => employee[key] == query[key])
+  })
 
   res.render('employees', {
-    employees: sorage.data.map(e => _.omit(e, ['id'])),
+    employees: filteredData.map(e => _.omit(e, ['id'])),
     title: 'Hello',
   })
 })

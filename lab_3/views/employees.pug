@@ -1,9 +1,13 @@
 include includes/head.pug
-.grid
+.cards
   each employee in employees
     .card
-      span= employee.name
-      br
-      span= employee.email
-      
+      img(src="")
+      b= employee.name
+      each key in Object.keys(employee)
+        if key !== "name"
+          .row 
+            span= key
+            span= employee[key]
+
 
