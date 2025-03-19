@@ -1,0 +1,91 @@
+@hostname = http://localhost:3000
+
+# create new
+POST {{hostname}}/employees
+Content-Type: application/json
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY3YmM3MjZhZWQ4MTFmY2U5ZWExZGYzOSIsImlhdCI6MTc0MDQwMzU4M30.gmWQuzSk1JEdHURlYIGyG9rDH1kB3a-2-s1AWrR_UYA
+
+{
+    "username": "user{{$randomInt 0 999999999999}}",
+    "firstName": "Esraa",
+    "lastName": "Aaa",
+    "dob": "{{$datetime iso8601}}",
+    "password": "123456789",
+    "profile": {
+        "empId": "createcool",
+        "title": "helloworld",
+        "description": "coolguy",
+        "department": "amd",
+        "phone": "123",
+        "email": "abc@e.com"
+    }
+}
+
+
+###
+
+
+# get  
+GET {{hostname}}/employees
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY3YmM3MjZhZWQ4MTFmY2U5ZWExZGYzOSIsImlhdCI6MTc0MDQwMzU4M30.gmWQuzSk1JEdHURlYIGyG9rDH1kB3a-2-s1AWrR_UYA
+
+
+
+###
+
+# delete employee
+DELETE {{hostname}}/employees/67bc57497813b1e0defb69f1
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY3YmM3MjZhZWQ4MTFmY2U5ZWExZGYzOSIsImlhdCI6MTc0MDQwMzU4M30.gmWQuzSk1JEdHURlYIGyG9rDH1kB3a-2-s1AWrR_UYA
+
+
+### update employee
+PATCH  {{hostname}}/employees/67bc58825bc1f818f491d18b
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY3YmM3MjZhZWQ4MTFmY2U5ZWExZGYzOSIsImlhdCI6MTc0MDQwMzU4M30.gmWQuzSk1JEdHURlYIGyG9rDH1kB3a-2-s1AWrR_UYA
+Content-Type: application/json
+
+{
+    "password": "abcasdmasljfklasgfkasfbksagf"
+}
+
+### get employee leaves
+GET {{hostname}}/employees/67bc58825bc1f818f491d18b/leaves
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY3YmM3MjZhZWQ4MTFmY2U5ZWExZGYzOSIsImlhdCI6MTc0MDQwMzU4M30.gmWQuzSk1JEdHURlYIGyG9rDH1kB3a-2-s1AWrR_UYA
+
+### login
+POST {{hostname}}/employees/login
+Content-Type: application/json
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY3YmM3MjZhZWQ4MTFmY2U5ZWExZGYzOSIsImlhdCI6MTc0MDQwMzU4M30.gmWQuzSk1JEdHURlYIGyG9rDH1kB3a-2-s1AWrR_UYA
+
+
+{
+    "username": "user453147158214",
+    "password": "123456789"
+}
+
+
+### create leave
+POST {{hostname}}/leave
+Content-Type: application/json
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY3YmM3MjZhZWQ4MTFmY2U5ZWExZGYzOSIsImlhdCI6MTc0MDQwMzU4M30.gmWQuzSk1JEdHURlYIGyG9rDH1kB3a-2-s1AWrR_UYA
+
+
+{
+    "empId": "67bc58825bc1f818f491d18b",
+    "type": "annual",
+    "duration": 3,
+    "status": "ended"
+}
+### update leave
+PATCH {{hostname}}/leave/67bc7a6fabc8aa9f98e6d1e6
+Content-Type: application/json
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY3YmM3MjZhZWQ4MTFmY2U5ZWExZGYzOSIsImlhdCI6MTc0MDQwMzU4M30.gmWQuzSk1JEdHURlYIGyG9rDH1kB3a-2-s1AWrR_UYA
+
+
+{
+    "duration": 3
+}
+
+### leaves with filter
+GET {{hostname}}/leave?type=annual
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY3YmM3MjZhZWQ4MTFmY2U5ZWExZGYzOSIsImlhdCI6MTc0MDQwMzU4M30.gmWQuzSk1JEdHURlYIGyG9rDH1kB3a-2-s1AWrR_UYA
+

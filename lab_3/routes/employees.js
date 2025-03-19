@@ -50,6 +50,7 @@ employeesRouter.post('/', validateEmployeeMiddleware, async (req, res) => {
   res.json(await createNewEmployee(req.body))
 })
 
+// use regex for int
 employeesRouter.delete('/:id', async (req, res) => {
   const { id } = req.params
   const result = z.number().int().safeParse(+id)
@@ -81,6 +82,7 @@ employeesRouter.patch('/:id', async (req, res) => {
     return
   }
   const result = await updateEmoloyeeById(idResult.data, employeeResult.data)
+  //!!! value or error
   if (result === null) {
     //employee not found
     res.status(404).json({ message: 'Employee not found' })
